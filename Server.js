@@ -26,7 +26,7 @@ app.get("/", (req, res, next) => {
 
 
 // list all books
-app.get("/patientrecord", (req, res, next) => {
+app.get("/patient", (req, res, next) => {
     let sql = `SELECT Name name FROM patient ORDER BY name`;
     var params = []
     db.all(sql, params, (err, rows) => {
@@ -58,7 +58,7 @@ app.get("/patientrecord", (req, res, next) => {
 //});
 
 // Create a new book
-app.post("/patientrecord/", (req, res, next) => {
+app.post("/patient/", (req, res, next) => {
     var errors=[]
     if (!req.body.name){
         errors.push("Name for patient not specified");
