@@ -61,7 +61,7 @@ app.get("/patient", (req, res, next) => {
 app.post("/patient/", (req, res, next) => {
     var errors=[]
     if (!req.body.name){
-        errors.push("Name for book not specified");
+        errors.push("Name for patient not specified");
     }
     if (errors.length){
         res.status(400).json({"error":errors.join(",")});
