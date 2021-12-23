@@ -1,7 +1,7 @@
 var express = require("express")
 var cors = require('cors');
 var bodyParser = require("body-parser");
-var db = require("./Database.js")
+var db = require("./database.js")
 
 var app = express()
 
