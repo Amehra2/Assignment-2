@@ -11,7 +11,7 @@ let db = new sqlite3.Database('patientrecord.db', (err) => {
 
 
   // create table 'book'
-  const sql='CREATE TABLE patientrecord(name text)';
+  const sql='CREATE TABLE record(name text)';
   db.run(sql, (err) => {
     if (err) {
         // Table already created
@@ -23,7 +23,7 @@ let db = new sqlite3.Database('patientrecord.db', (err) => {
       console.log('First time Table created, creating some rows.');
       
       var insert = 'INSERT INTO patients(name) VALUES(?)';
-      db.run(insert, ['"treatId": "LHM908, "treatCourseId:"40220", "type:"long term", "category": "Asthma", "name": "Josh Drakeson", "startDate": "28-03-2021" ']);
+      //db.run(insert, ['"treatId": "LHM908, "treatCourseId:"40220", "type:"long term", "category": "Asthma", "name": "Josh Drakeson", "startDate": "28-03-2021" ']);
       db.run(insert, ['JavaScript Programming']);
       db.run(insert, ['React with Hooks']);
      

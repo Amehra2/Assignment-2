@@ -27,7 +27,7 @@ app.get("/", (req, res, next) => {
 
 // list all books
 app.get("/patient", (req, res, next) => {
-    let sql = `SELECT Name name FROM patient ORDER BY name`;
+    let sql = `SELECT Name FROM patient ORDER BY name`;
     var params = []
     db.all(sql, params, (err, rows) => {
         if (err) {
@@ -42,20 +42,20 @@ app.get("/patient", (req, res, next) => {
 });
 
 // Get a single book by name
-//app.get("/books/:name", (req, res, next) => {
-    //var sql = "select * from book where name = ?"
-    //var params = [req.params.name]
-    //db.get(sql, params, (err, row) => {
-        //if (err) {
-          //res.status(400).json({"error":err.message});
-          //return;
-        //}
-        //res.json({
-            //"message":"success",
-            //"data":row
-        //})
-      //});
-//});
+app.get("/patient/:name", (req, res, next) => {
+    var sql = "select * from patient where name = ?"
+    var params = [req.params.name]
+    db.get(sql, params, (err, row) => {
+    if (err) {
+          res.status(400).json({"error":err.message});
+          return;
+        }
+        res.json({
+            "message":"success",
+            "data":row
+        })
+      });
+});
 
 // Create a new book
 app.post("/patient/", (req, res, next) => {
