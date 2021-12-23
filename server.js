@@ -26,7 +26,7 @@ app.get("/", (req, res, next) => {
 
 
 // list all books
-app.get("/patient", (req, res, next) => {
+app.get("/patients", (req, res, next) => {
     let sql = `SELECT Name FROM patient ORDER BY name`;
     var params = []
     db.all(sql, params, (err, rows) => {
@@ -42,7 +42,7 @@ app.get("/patient", (req, res, next) => {
 });
 
 // Get a single book by name
-app.get("/patient/:name", (req, res, next) => {
+app.get("/patients/:name", (req, res, next) => {
     var sql = "select * from patient where name = ?"
     var params = [req.params.name]
     db.get(sql, params, (err, row) => {

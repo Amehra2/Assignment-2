@@ -1,17 +1,17 @@
 var sqlite3 = require('sqlite3').verbose()
 
 // open the database
-let db = new sqlite3.Database('patientrecord.db', (err) => {
+let db = new sqlite3.Database('mypatients.db', (err) => {
     if (err) {
       console.error(err.message);
       throw err
     }
-    console.log('Connected to the patientrecord database.');
+    console.log('Connected to the mypatients database.');
   });
 
 
   // create table 'book'
-  const sql='CREATE TABLE record(name text)';
+  const sql='CREATE TABLE patient(name text)';
   db.run(sql, (err) => {
     if (err) {
         // Table already created
